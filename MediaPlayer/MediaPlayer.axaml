@@ -1,0 +1,33 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
+             
+            xmlns:i="using:Avalonia.Xaml.Interactivity"
+            xmlns:ia="using:Avalonia.Xaml.Interactions.Core"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+            x:Class="AOSMvvm.Views.MediaPlayer">
+
+    <Grid RowDefinitions="* 50">
+        <vlc:VideoView Name="videoView" Grid.Row="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" IsVisible="False"/>
+
+        <TextBlock Name="imageView" Grid.Row="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            TextAlignment="Center">
+            Please open media.
+        </TextBlock>
+
+
+        <Grid Name="ControlsPanel" Grid.Row="1"  ColumnDefinitions="50 * 50 150">
+            <Button Click="TogglePlayPause" Grid.Column="0" Background="Transparent" FontSize="25">⏯️</Button>
+            <Slider Name="SeekSlider" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="10 0 10 0"/>
+            <Label Grid.Column="2" VerticalAlignment="Center" FontSize="25">🔊</Label>
+            <Slider Name="VolumeSlider" Grid.Column="3" Orientation="Horizontal"  Maximum="100" Value="50" Margin="0 0 10 0"/>
+        </Grid>
+    </Grid>
+
+</UserControl>
